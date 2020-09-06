@@ -3,8 +3,8 @@ const todos = [
   { id: 2, description: 'Eat pizza', done: false }
 ];
 
-module.exports.getTodos = (req, res) => {
-  res.send(todos);
+const getTodos = (req, res) => {
+  return res.send(todos);
 };
 
 module.exports.getTodoById = (req, res) => {;
@@ -28,7 +28,7 @@ module.exports.addTodo = (req, res) => {
   return res.status(201).send(todo);
 };
 
-module.exports.updateTodo = (req, res) => {;
+const updateTodo = (req, res) => {;
   const id = req.params.id;
   const {description, done} = req.body;
   const todo = todos.find(item => `${item.id}` === `${id}`);
@@ -51,3 +51,7 @@ module.exports.deleteTodo = (req, res) => {;
   todos.splice(todoIdx, 1);
   return res.status(200).send();
 };
+
+module.exports = {
+  getTodos, updateTodo
+}
