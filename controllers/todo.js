@@ -3,11 +3,11 @@ const todos = [
   { id: 2, description: 'Eat pizza', done: false }
 ];
 
-const getTodos = (req, res) => {
+module.exports.getTodos = (req, res) => {
   return res.send(todos);
 };
 
-module.exports.getTodoById = (req, res) => {;
+module.exports.getTodoById = async (req, res) => {;
   const id = req.params.id;
   const todo = todos.find(item => `${item.id}` === `${id}`);
 
@@ -28,7 +28,7 @@ module.exports.addTodo = (req, res) => {
   return res.status(201).send(todo);
 };
 
-const updateTodo = (req, res) => {;
+module.exports.updateTodo = (req, res) => {;
   const id = req.params.id;
   const {description, done} = req.body;
   const todo = todos.find(item => `${item.id}` === `${id}`);
@@ -51,7 +51,3 @@ module.exports.deleteTodo = (req, res) => {;
   todos.splice(todoIdx, 1);
   return res.status(200).send();
 };
-
-module.exports = {
-  getTodos, updateTodo
-}
