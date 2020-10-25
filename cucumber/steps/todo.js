@@ -4,7 +4,7 @@ const assert = require('assert');
 
 Given('get all endpoint is requested', async function () {
 
-  const url = 'http://localhost:3000/api/todo';
+  const url = 'http://localhost:3005/api/todo';
   try {
     const response = await axios.get(url);
     const data = response.data;
